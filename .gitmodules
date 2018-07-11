@@ -1,0 +1,3 @@
+[submodule "terraform-inventory"]
+	path = terraform-inventory
+	url = git@github.com:adammck/terraform-inventory
