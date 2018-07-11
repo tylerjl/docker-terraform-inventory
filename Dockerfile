@@ -6,9 +6,9 @@ ADD terraform-inventory .
 RUN go get ./...
 RUN go build .
 
-FROM golang
+FROM alpine
 
 MAINTAINER Tyler Langlois <ty@tjll.net>
-
-COPY --from=build /go/src/github.com/adammck/terraform-inventory/terraform-inventory /go/bin/terraform-inventory
-ENTRYPOINT ["/go/bin/terraform-inventory"]
+WORKDIR /
+COPY --from=build /go/src/github.com/adammck/terraform-inventory/terraform-inventory /terraform-inventory
+ENTRYPOINT ["/terraform-inventory"]
